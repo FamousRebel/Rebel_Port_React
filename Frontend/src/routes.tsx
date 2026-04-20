@@ -1,34 +1,41 @@
 import { createBrowserRouter } from 'react-router';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
-import BlogList from './pages/BlogList';
-import BlogDetail from './pages/BlogDetail';
+import BlogList from './pages/Blog/List';
+import BlogDetail from './pages/Blog/Detail';
 import Links from './pages/Links';
 import About from './pages/About';
+import Layout from './components/Layout';
 
 export const router = createBrowserRouter([
     {
-        path: '/',
-        element: <Home />
-    },
-    {
-        path: '/projects',
-        element: <Projects />
-    },
-    {
-        path: '/blog',
-        element: <BlogList />
-    },
-    {
-        path: '/blog/:id',
-        element: <BlogDetail />
-    },
-    {
-        path: '/links',
-        element: <Links />
-    },
-    {
-        path: '/about',
-        element: <About />
-    },
+        Component: Layout,
+        children: [
+        { index: true, Component: Home },
+        {
+            path: '/',
+            Component: Home
+        },
+        {
+            path: '/projects',
+            Component: Projects
+        },
+        {
+            path: '/blog',
+            Component: BlogList
+        },
+        {
+            path: '/blog/:id',
+            Component: BlogDetail
+        },
+        {
+            path: '/links',
+            Component: Links
+        },
+        {
+            path: '/about',
+            Component: About
+        },
+        ],
+    }
 ]);
