@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router';
-import Home from './pages/Home';
-import Projects from './pages/Projects';
-import BlogList from './pages/Blog/List';
-import BlogDetail from './pages/Blog/Detail';
-import Links from './pages/Links';
-import About from './pages/About';
-import Layout from './components/Layout';
+import Home from '@/pages/Home';
+import Projects from '@/pages/Projects';
+import BlogList from '@/pages/Blog/List';
+import BlogDetail from '@/pages/Blog/Detail';
+import Links from '@/pages/Links';
+import About from '@/pages/About';
+import Layout from '@/components/Layout';
 
 export const router = createBrowserRouter([
     {
