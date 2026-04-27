@@ -1,10 +1,19 @@
-import { Outlet, useNavigate } from 'react-router'
+import { Outlet, useNavigate, type OutletProps } from 'react-router-dom';
+import type { LayoutProps } from "../../types/LayoutProps";
+import Header from '../Sections/Header';
 
-const DefaultLayout = (props: any) => {
+
+interface DefaultLayoutProps extends OutletProps, LayoutProps {
+}
+
+const DefaultLayout = (props: DefaultLayoutProps) => {
+
+  const { children, title, className } = props;
   const navigate = useNavigate()
+
   return (
-    <div>
-      <button onClick={() => {navigate('/links')}}>Links</button>
+    <div className={className}>
+      <Header />
       <Outlet />
     </div>
   )

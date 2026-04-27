@@ -1,11 +1,5 @@
-import DefaultLayout from "./DefaultLayout";
-
-interface LayoutProps {
-  children?: React.ReactNode;
-  title?: string;
-  showHeader?: boolean;
-  showFooter?: boolean;
-}
+import DefaultLayout from "@/components/Layout/DefaultLayout";
+import type { LayoutProps } from "@/types/LayoutProps";
 
 const Layout = (props: LayoutProps) => {
     const { children, ...Options } = props
@@ -14,5 +8,5 @@ const Layout = (props: LayoutProps) => {
             {children}
         </DefaultLayout>
     )
-}
-export default Layout;
+}// 预留动态布局组件入口
+export default Layout;  
