@@ -17,43 +17,23 @@ const Header = () => {
 
     const builder = new RouteBuilder(routesConfig);
     
-    console.log("routes:",builder.toReactRouterRoutes());
-    
+    console.log("ReactRouter:",builder.toReactRouterRoutes());
+    console.log("NavigationRoute:",builder.toNavigationRoutes());
+    const NavigationRoutes = builder.toNavigationRoutes();
+
     return (
         <>
             <NavigationMenu>
                 <NavigationMenuList>
-                
-                    <NavigationMenuItem>
-                        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                        <Link to="/Home">首页</Link>
-                        </NavigationMenuLink>
-                    </NavigationMenuItem>
-                    
-                    <NavigationMenuItem>
-                        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                        <Link to="/Projects">项目</Link>
-                        </NavigationMenuLink>
-                    </NavigationMenuItem>
-
-                    <NavigationMenuItem>
-                        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                        <Link to="/blog">博客</Link>
-                        </NavigationMenuLink>
-                    </NavigationMenuItem>
-
-                    <NavigationMenuItem>
-                        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                        <Link to="/links">友链</Link>
-                        </NavigationMenuLink>
-                    </NavigationMenuItem>
-
-                    <NavigationMenuItem>
-                        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                        <Link to="/about">关于</Link>
-                        </NavigationMenuLink>
-                    </NavigationMenuItem>
-
+                    {
+                        NavigationRoutes.map((route) => (
+                            <NavigationMenuItem key={route.title}>
+                                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                                    <Link to={route.path}>{route.title}</Link>
+                                </NavigationMenuLink>
+                            </NavigationMenuItem>
+                        ))
+                    }
                     {/* <NavigationMenuItem>
                         <NavigationMenuTrigger>社交</NavigationMenuTrigger>
                         <NavigationMenuContent>

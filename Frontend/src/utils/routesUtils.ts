@@ -1,42 +1,72 @@
-import type { RouteConfigType } from "@/types/routesType";
+import type { RouteConfigType, NavigationRouteType } from "@/types/routesType";
 import type { RouteObject } from "react-router-dom";
 
 export class RouteBuilder {
-    private config: RouteConfigType [];
+    private config: RouteConfigType[];
 
     constructor(config: RouteConfigType[]) {
         this.config = config;
     }
 
-    getRoutesConfig(){
+    // 获取原始的路由配置
+    getRoutesConfig(): RouteConfigType[] {
         return this.config;
     }
+
+    // 获取用于React Router的路由结构
     toReactRouterRoutes(): RouteObject[] {
-        return this.config.map(route => this.transformRoute(route))
+        return this.transformRoutes(
+            this.config, 
+            this.mapToRouteObject, 
+            (route) => !route.isNotDevelop);
     }
-    private transformRoute(route: RouteConfigType): RouteObject {
-        
-        const { layout, children } = route;
+    
+    // 获取用于导航菜单的路由结构
+    toNavigationRoutes(): NavigationRouteType[] {
+        const rootChildren = this.config[0]?.children || [];
 
-        const routeObj = {
-            ...route,
-            children: children ? this.transformChildren(children) : undefined,
-        }
-
-        if(layout){
-            delete routeObj.layout;
-        }
-
-        if(!children){
-            delete routeObj.children;
-        }
-
-        delete routeObj.title;
-
-        return routeObj;
+        return this.transformRoutes(
+            rootChildren, 
+            this.mapToNavigationRoute,
+            (route) => !route.isNotDevelop && !route.isNotDisplayed && !!route.title
+        ); // 过滤掉没有标题的路由
     }
 
-    private transformChildren(children: RouteConfigType[]): RouteObject[] {
-        return children.map(child => this.transformRoute(child))
+    // 递归转换路由配置为指定类型
+    private transformRoutes<T>(
+        routes: RouteConfigType[],
+        mapper: (route: RouteConfigType) => T,
+        filter: (route: RouteConfigType) => boolean,
+    ): T[] {
+        return routes
+            .filter(filter)
+            .map((route) => {
+                const item = { ...mapper(route) };
+                if (route.children) {
+                    const children = this.transformRoutes(route.children, mapper, filter);
+                    // 👇 核心：只有子项长度 > 0 才添加 children
+                    if (children.length > 0) {
+                        (item as any).children = children;
+                    }
+                }
+                return item;
+            });
+    }
+
+    // 将RouteConfigType转换为React Router的RouteObject
+    private mapToRouteObject(route: RouteConfigType): RouteObject {
+
+        const { isNotDisplayed, title, ...rest } = route;
+        return rest as RouteObject;
+    }
+
+    // 将RouteConfigType转换为导航菜单的路由结构
+    private mapToNavigationRoute(route: RouteConfigType): NavigationRouteType {
+        const { title, path } = route;
+
+        return {
+            title: title || '',
+            path: path || '',
+        };
     }
 }
