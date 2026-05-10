@@ -1,34 +1,43 @@
-import React from 'react';
 import { ICONS, type IconName } from './icons';
 
 interface IconsProps {
     name: IconName;
     size?: number | string;
-    color?: string;
     className?: string;
+    color?: string;
     onClick?: () => void;
 }
 
-const Icons: React.FC<IconsProps> = ({ 
-    name, 
-    size = 16, 
-    color = 'currentColor', 
-    className = '', 
-    onClick 
-}) => {
+const Icons = ({
+    name,
+    size = 24,
+    className = '',
+    color = '#000',
+    onClick
+}: IconsProps) => {
+    const icon = ICONS[name];
+
+    if (!icon) {
+        console.warn(`Icon "${name}" not found`);
+        return null;
+    }
+
     return (
-        <svg
-            width={size}
-            height={size}
-            fill={color}
+        <span
             className={className}
             onClick={onClick}
-            style={{ display: 'inline-block', verticalAlign: 'middle' }}
-            viewBox="0 0 425 289"
-            aria-hidden="true"
+            style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: size,
+                height: size,
+                color: color,
+            }}
         >
-            {ICONS[name]}
-        </svg>
+            {icon}
+        </span>
     );
 };
+
 export default Icons;
