@@ -8,14 +8,17 @@ interface DefaultLayoutProps extends OutletProps, LayoutProps {
 
 const DefaultLayout = (props: DefaultLayoutProps) => {
 
-  const { children, title, className } = props;
+  const { children, title, className, ...rest } = props;
   const navigate = useNavigate()
 
   return (
-    <div className={className}>
+    <>
       <Header />
-      <Outlet />
-    </div>
+      <div className='pt-16'>
+        <Outlet />
+      </div>
+      
+    </>
   )
 }
 export default  DefaultLayout;

@@ -5,17 +5,18 @@
 
 @custom-variant dark (&:is(.dark *));
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body {
+  /* line-height: inherit;
+  place-items: center; */
+  /* min-width: 320px;
+  height: 100vh;
+  min-height: 100svh; */
+  /* margin: 0;
+  display: flex; */
 }
 
-body {
-  min-width: 320px;
-  display: flex; 
-  justify-content: center;
-  align-items: center;
+:root{
+  line-height: inherit;
 }
 
 /* :root {
