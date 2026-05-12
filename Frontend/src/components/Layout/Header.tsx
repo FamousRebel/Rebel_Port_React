@@ -7,16 +7,24 @@ import {
   NavigationMenuContent,
   NavigationMenuTrigger,
   NavigationMenuLink,
-  NavigationMenuViewport,
   navigationMenuTriggerStyle,
-  NavigationMenuIndicator,
 } from "@/components/ui/navigation-menu";
 
 import { Link } from "react-router-dom";
 import { RouteBuilder } from "@/utils/routesUtils";
 import { routesConfig } from "@/routes/config";
 import Icons from "@/components/Common/Icons";
-import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { icons } from "lucide-react";
 
 const Header = () => {
   const builder = new RouteBuilder(routesConfig);
@@ -70,14 +78,34 @@ const Header = () => {
             )}
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="flex justify-end items-center">
-          <div></div>
-          <Avatar>
-            <AvatarImage src="https://github.com/FamousRebel.png" />
-            <AvatarFallback>
-              <Icons name="User" size={24} />
-            </AvatarFallback>
-          </Avatar>
+        <div className="flex justify-end items-center self-center space-x-4">
+          <Icons name="Bright" size={24} />
+          <Dialog>
+            <DialogTrigger asChild>
+              <Avatar size="lg">
+                <AvatarImage src="https://github.com/FamousRebel.png" />
+                <AvatarFallback>
+                  <Icons name="User" size={24} />
+                </AvatarFallback>
+              </Avatar>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader className="size-100 flex flex-col justify-center items-center">
+                <div className="grid grid-rows-2 place-items-center">
+                  <Avatar className="size-30">
+                    <AvatarImage src="https://github.com/FamousRebel.png" />
+                    <AvatarFallback>
+                      <Icons name="User" size={50} />
+                    </AvatarFallback>
+                  </Avatar>
+                  <Button className="[&_svg:not([class*='size-'])]:size-6">
+                    <Icons name="Github" color="#FFf" />
+                    使用Github登录
+                  </Button>
+                </div>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </header>
