@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import {
   NavigationMenu,
@@ -18,27 +18,44 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { icons } from "lucide-react";
+import { HeaderAvatar, HeaderSearch } from "@/components/Layout/Header";
+import useSearchStore from "@/store/SearchStore";
+import { useShallow } from "zustand/react/shallow";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const builder = new RouteBuilder(routesConfig);
-  console.log(builder.toNavigationRoutes());
   const NavigationRoutes = builder.toNavigationRoutes();
+
+  const { tabs, items } = useSearchStore(useShallow((state) => state));
+
+  console.log(tabs);
+
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+      e.preventDefault();
+      setIsOpen((open) => !open);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
 
   return (
     <header className="fixed w-full top-0 z-50 border-b flex items-center justify-center">
-      <div className="grid grid-cols-3 items-center justify-between h-16 px-4">
+      <div className="grid grid-cols-3 items-center h-16 px-2 gap-8 w-full max-w-7xl mx-auto">
         <div className="flex justify-start items-center">
           <Icons name="Rebel_Port_Logo" size={32} />
           <span className="ml-2 text-xl font-bold">Rebel's Port</span>
         </div>
-        <NavigationMenu viewport={false}>
+        <NavigationMenu viewport={false} className="mx-auto">
           <NavigationMenuList>
             {NavigationRoutes.map((route) =>
               !route?.children ? (
@@ -79,33 +96,14 @@ const Header = () => {
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex justify-end items-center self-center space-x-4">
+          <HeaderSearch
+            open={isOpen}
+            onOpenChange={setIsOpen}
+            tabs={tabs}
+            value={items}
+          />
           <Icons name="Bright" size={24} />
-          <Dialog>
-            <DialogTrigger asChild>
-              <Avatar size="lg">
-                <AvatarImage src="https://github.com/FamousRebel.png" />
-                <AvatarFallback>
-                  <Icons name="User" size={24} />
-                </AvatarFallback>
-              </Avatar>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader className="size-100 flex flex-col justify-center items-center">
-                <div className="grid grid-rows-2 place-items-center">
-                  <Avatar className="size-30">
-                    <AvatarImage src="https://github.com/FamousRebel.png" />
-                    <AvatarFallback>
-                      <Icons name="User" size={50} />
-                    </AvatarFallback>
-                  </Avatar>
-                  <Button className="[&_svg:not([class*='size-'])]:size-6">
-                    <Icons name="Github" color="#FFf" />
-                    使用Github登录
-                  </Button>
-                </div>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
+          <HeaderAvatar />
         </div>
       </div>
     </header>
