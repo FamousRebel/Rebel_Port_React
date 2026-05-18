@@ -1,10 +1,11 @@
-import React from 'react';
+import { BusinessCard } from "@/components/Sections/Home";
+import React from "react";
 
 const Home = () => {
-    return (
-        <div>
-            <h1>Home</h1>
-        </div>
-    );
-}
+  return (
+    <div>
+      <BusinessCard />
+    </div>
+  );
+};
 export default Home;
