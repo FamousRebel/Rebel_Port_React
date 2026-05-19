@@ -3,6 +3,8 @@ import BusinessCardImg from "@/assets/1.png";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { Card, CardGroup, CardItem } from "@/components/Common/Card";
+import { Car } from "lucide-react";
 
 const BusinessCard = () => {
   const navigate = useNavigate();
@@ -26,24 +28,23 @@ const BusinessCard = () => {
               Node.js
             </Badge>
           </div>
-          <div className="grid grid-cols-3 border border-gray-300 bg-white rounded-md w-full max-w-2xl h-32">
-            <div className="border-r border-gray-300 p-4 flex flex-col items-center justify-center gap-1">
+          <CardGroup align="center">
+            <CardItem>
               <span className="text-3xl font-bold">24</span>
               <span className="text-[#666666] text-xs">项目</span>
               <span className="text-[10px] text-[#3B82F6]">2天前更新</span>
-            </div>
-            <div className="border-r border-gray-300 p-4 flex flex-col items-center justify-center gap-1">
-              <span className="text-3xl font-bold">24</span>
-              <span className="text-[#666666] text-xs">项目</span>
-              <span className="text-[10px] text-[#10B981]">2天前更新</span>
-            </div>
-
-            <div className="border-r border-gray-300 p-4 flex flex-col items-center justify-center gap-1">
-              <span className="text-3xl font-bold">24</span>
-              <span className="text-[#666666] text-xs">项目</span>
+            </CardItem>
+            <CardItem>
+              <span className="text-3xl font-bold">82</span>
+              <span className="text-[#666666] text-xs">文章</span>
+              <span className="text-[10px] text-[#10B981]">昨天更新</span>
+            </CardItem>
+            <CardItem>
+              <span className="text-3xl font-bold">114541</span>
+              <span className="text-[#666666] text-xs">浏览数</span>
               <span className="text-[10px] text-[#A855F7]">2天前更新</span>
-            </div>
-          </div>
+            </CardItem>
+          </CardGroup>
           <div className="flex gap-4 mt-12">
             <Button
               className="px-6 py-2.5 w-32 h-11"
