@@ -1,3 +1,4 @@
+import type React from "react";
 import { ICONS, type IconName } from "./icons";
 
 interface IconsProps {
@@ -8,13 +9,7 @@ interface IconsProps {
   onClick?: () => void;
 }
 
-const Icons = ({
-  name,
-  size = 24,
-  className = "",
-  color = "#000",
-  onClick,
-}: IconsProps) => {
+const Icons = ({ name, size = 24, color, className, onClick }: IconsProps) => {
   const icon = ICONS[name];
 
   if (!icon) {
