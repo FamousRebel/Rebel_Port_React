@@ -23,7 +23,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { HeaderAvatar, HeaderSearch } from "@/components/Layout/Header";
-import useSearchStore from "@/store/SearchStore";
+import useSearchStore from "@/store/searchStore";
 import { useShallow } from "zustand/react/shallow";
 
 const Header = () => {

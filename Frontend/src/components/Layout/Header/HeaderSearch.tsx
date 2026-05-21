@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/input-group";
 import { Kbd } from "@/components/ui/kbd";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import type { SearchTabs, SearchItem } from "@/types/SearchTypes";
+import type { SearchTabs, SearchItem } from "@/types/searchTypes";
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import {
   Item,
@@ -24,7 +24,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/components/ui/item";
-import useSearchStore from "@/store/SearchStore";
+import useSearchStore from "@/store/searchStore";
 import { useShallow } from "zustand/react/shallow";
 
 interface HeaderSearchProps {

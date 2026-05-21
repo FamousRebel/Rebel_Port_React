@@ -1,12 +1,8 @@
 import DefaultLayout from "@/components/Layout/DefaultLayout";
-import type { LayoutProps } from "@/types/LayoutProps";
+import type { LayoutProps } from "@/types/layoutProps";
 
 const Layout = (props: LayoutProps) => {
-    const { children, ...Options } = props
-    return (
-        <DefaultLayout {...Options}>
-            {children}
-        </DefaultLayout>
-    )
-}// 预留动态布局组件入口
-export default Layout;  
+  const { children, ...Options } = props;
+  return <DefaultLayout {...Options}>{children}</DefaultLayout>;
+}; // 预留动态布局组件入口
+export default Layout;
