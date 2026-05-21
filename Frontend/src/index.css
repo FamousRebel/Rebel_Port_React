@@ -7,6 +7,8 @@
 
 :root{
   line-height: inherit;
+  overflow: auto;
+  scrollbar-width: none;
 }
 
 @theme inline {

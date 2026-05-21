@@ -33,10 +33,8 @@ const FeaturedSection = <T extends CardItem>({
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(api);
-    if (!api) {
-      return;
-    }
+    if (!api) return;
+
     setCanScrollPrev(api.canScrollPrev());
     setCanScrollNext(api.canScrollNext());
 

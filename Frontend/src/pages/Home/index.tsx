@@ -220,7 +220,7 @@ const projectData: ProjectItem[] = [
 
 const Home = () => {
   return (
-    <div>
+    <>
       <BusinessCard />
       <div className="flex flex-col gap-20 my-16 max-w-7xl mx-auto">
         <FeaturedSection
@@ -295,7 +295,7 @@ const Home = () => {
           )}
         />
       </div>
-    </div>
+    </>
   );
 };
 export default Home;

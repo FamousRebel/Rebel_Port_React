@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import {
   NavigationMenu,
@@ -9,19 +9,10 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-
 import { Link } from "react-router-dom";
 import { RouteBuilder } from "@/utils/routesUtils";
 import { routesConfig } from "@/routes/config";
 import Icons from "@/components/Common/Icons";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import { HeaderAvatar, HeaderSearch } from "@/components/Layout/Header";
 import useSearchStore from "@/store/searchStore";
 import { useShallow } from "zustand/react/shallow";
@@ -29,12 +20,12 @@ import { useShallow } from "zustand/react/shallow";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const builder = new RouteBuilder(routesConfig);
-  const NavigationRoutes = builder.toNavigationRoutes();
+  const NavigationRoutes = useMemo(() => {
+    const builder = RouteBuilder.fromConfig(routesConfig);
+    return builder.toNavigationRoutes();
+  }, []);
 
   const { tabs, items } = useSearchStore(useShallow((state) => state));
-
-  console.log(tabs);
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
@@ -49,7 +40,7 @@ const Header = () => {
   }, [handleKeyDown]);
 
   return (
-    <header className="fixed w-full top-0 z-50 border-b flex items-center justify-center">
+    <header className="fixed w-full top-0 z-50 border-b flex items-center justify-center backdrop-blur-lg">
       <div className="grid grid-cols-3 items-center h-16 px-2 gap-8 w-full max-w-7xl mx-auto">
         <div className="flex justify-start items-center">
           <Icons name="Rebel_Port_Logo" size={32} />
