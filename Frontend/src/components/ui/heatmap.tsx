@@ -359,8 +359,16 @@ export default function Heatmap(props: HeatmapProps) {
       {weeks.map((_, i) => (
         <div
           key={`header-${i}`}
-          style={{ gridColumn: i + 2, gridRow: 1, fontSize }}
-          className="text-muted-foreground flex items-end"
+          style={{
+            gridColumn: i + 2,
+            gridRow: 1,
+            fontSize,
+            width: cellSize,
+            textAlign: "center",
+            whiteSpace: "nowrap",
+            overflow: "visible",
+          }}
+          className="text-muted-foreground flex items-end justify-center"
         >
           {monthLabels[i]}
         </div>
