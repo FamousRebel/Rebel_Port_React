@@ -1,10 +1,11 @@
-import React from 'react';
+import { BusinessCard } from "@/components/Sections/Projects";
+import React from "react";
 
 const Projects = () => {
-    return (
-        <div>
-            <h1>Projects</h1>
-        </div>
-    );
-}
+  return (
+    <>
+      <BusinessCard />
+    </>
+  );
+};
 export default Projects;
