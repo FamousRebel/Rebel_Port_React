@@ -172,7 +172,7 @@ function daysOfTheWeekIndicator({
     ) : (
       <div
         key={i}
-        className="flex items-center text-muted-foreground"
+        className="flex items-center text-muted-foreground mr-1"
         style={{
           gridRow: i + 2,
           gridColumn: 1,
