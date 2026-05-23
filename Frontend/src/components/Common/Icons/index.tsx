@@ -1,6 +1,7 @@
 import type React from "react";
 import { ICONS, type IconName } from "./icons";
 import { motion, type MotionProps } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface IconsProps {
   name: IconName; // 图标名称
@@ -97,7 +98,10 @@ const Icons = ({
 
   return (
     <Container
-      className={`cursor-pointer flex items-center justify-center transition-transform hover:scale-110 ${className}`}
+      className={cn(
+        "cursor-pointer flex items-center justify-center transition-transform hover:scale-110",
+        className,
+      )}
       onClick={onClick}
       style={{
         display: "inline-flex",
