@@ -1,10 +1,10 @@
-import { BusinessCard } from "@/components/Sections/Projects";
+import { ContributionChart } from "@/components/Sections/Projects";
 import React from "react";
 
 const Projects = () => {
   return (
     <>
-      <BusinessCard />
+      <ContributionChart />
     </>
   );
 };
