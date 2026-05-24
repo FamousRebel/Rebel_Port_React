@@ -88,7 +88,7 @@ const ContributionChart = () => {
   const data = sampleData.data;
 
   return (
-    <div className="h-[calc(100vh-64px)] border border-gray-300 rounded-md bg-dot-pattern flex justify-center">
+    <div className="h-[calc(100vh-64px)] border border-gray-300 rounded-md flex justify-center">
       <div className="flex flex-col items-center justify-center mx-auto w-full max-w-7xl gap-6">
         <div className="text-5xl font-bold">项目作品集</div>
         <div className="line-clamp-2 max-w-155.5 text-center text-lg mb-26">
