@@ -114,6 +114,7 @@ const ContributionChart = () => {
               <div className="text-sm text-[#64748B]">过去一年总贡献</div>
             </div>
           </div>
+
           <div className="w-[calc(100%-64px)]">
             <Carousel opts={{ watchDrag: false }} setApi={setApi}>
               <CarouselContent className="mt-2">
@@ -138,8 +139,8 @@ const ContributionChart = () => {
                   />
                 </CarouselItem>
               </CarouselContent>
-              <CarouselPrevious className="-left-8" />
-              <CarouselNext className="-right-8" />
+              <CarouselPrevious className="top-15 -left-8 translate-y-0" />
+              <CarouselNext className="top-15 -right-8 translate-y-0" />
               <div className="flex justify-end items-center w-full mt-5">
                 <div className="flex items-center gap-2 text-xs">
                   <span>少</span>
