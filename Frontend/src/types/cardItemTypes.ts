@@ -7,7 +7,7 @@ export interface BaseItem {
   url: string;
 }
 
-export interface ProjectItem extends BaseItem {
+export interface ProjectsItem extends BaseItem {
   techStack: string;
   star: number;
 }
@@ -16,4 +16,4 @@ export interface BlogItem extends BaseItem {
   tag: string;
 }
 
-export type CardItem = BaseItem | ProjectItem | BlogItem;
+export type CardItem = BaseItem | ProjectsItem | BlogItem;

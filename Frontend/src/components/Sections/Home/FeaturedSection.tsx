@@ -12,7 +12,7 @@ import type { CardItem } from "@/types/cardItemTypes";
 import { useNavigate } from "react-router-dom";
 
 interface featuredSectionProps<T extends CardItem> {
-  type: "Project" | "Blog"; // 区块类型
+  type: "Projects" | "Blog"; // 区块类型
   title: string; // 区块标题
   sectionIcon?: string; // 区块图标名称
   list: T[]; // 区块列表

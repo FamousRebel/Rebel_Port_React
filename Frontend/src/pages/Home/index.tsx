@@ -6,7 +6,7 @@ import {
 import Icons from "@/components/Common/Icons";
 import { BusinessCard, FeaturedSection } from "@/components/Sections/Home";
 import { Badge } from "@/components/ui/badge";
-import type { BlogItem, CardItem, ProjectItem } from "@/types/cardItemTypes";
+import type { BlogItem, ProjectsItem } from "@/types/cardItemTypes";
 import React from "react";
 
 const blogData: BlogItem[] = [
@@ -112,7 +112,7 @@ const blogData: BlogItem[] = [
   },
 ];
 
-const projectData: ProjectItem[] = [
+const projectsData: ProjectsItem[] = [
   {
     id: 1,
     title: "Port-Engine",
@@ -220,15 +220,15 @@ const projectData: ProjectItem[] = [
 
 const Home = () => {
   return (
-    <>
+    <div className="bg-dot-pattern">
       <BusinessCard />
-      <div className="flex flex-col gap-20 my-16 max-w-7xl mx-auto">
+      <div className="h-[calc(100vh-64px)] flex flex-col justify-center gap-20 max-w-7xl mx-auto">
         <FeaturedSection
-          type="Project"
+          type="Projects"
           title="最新项目"
           sectionIcon="layoutGrid"
-          list={projectData}
-          renderItem={(item: ProjectItem) => (
+          list={projectsData}
+          renderItem={(item: ProjectsItem) => (
             <Card cursor="pointer">
               <div className="flex justify-between">
                 <div
@@ -295,7 +295,7 @@ const Home = () => {
           )}
         />
       </div>
-    </>
+    </div>
   );
 };
 export default Home;
