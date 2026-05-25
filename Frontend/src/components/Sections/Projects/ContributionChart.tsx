@@ -32,7 +32,7 @@ const HEATMAP_COLORS = [
 ];
 
 const ContributionChart = () => {
-  const [api, setApi] = useState<CarouselApi>();
+  const [api, setApi] = useState<CarouselApi>(); // 获取轮播api
   const [selectedScrollSnap, setSelectedScrollSnap] = useState(0);
   const [pageNum, setPageNum] = useState(0);
 
@@ -50,7 +50,7 @@ const ContributionChart = () => {
     api.on("select", handleSelect);
 
     return () => {
-      api.off("select", handleSelect); // ✅ 清理监听
+      api.off("select", handleSelect);
     };
   }, [api]);
 
@@ -88,8 +88,8 @@ const ContributionChart = () => {
   const data = sampleData.data;
 
   return (
-    <div className="h-[calc(100vh-64px)] border border-gray-300 rounded-md flex justify-center">
-      <div className="flex flex-col items-center justify-center mx-auto w-full max-w-7xl gap-6">
+    <div className="h-[calc(100vh-64px)] border border-gray-300 rounded-md flex flex-col justify-center items-center">
+      <div className="flex flex-col flex-1 items-center justify-center mx-auto w-full max-w-7xl gap-6">
         <div className="text-5xl font-bold">项目作品集</div>
         <div className="line-clamp-2 max-w-155.5 text-center text-lg mb-26">
           展示了我最近参与度前端架构、开源工具及技术实践中的探索与沉淀。保持对技术的热爱，持续交付高质量的代码作品
@@ -175,14 +175,24 @@ const ContributionChart = () => {
             ))}
           </div>
         </Card>
+      </div>
+
+      <button
+        onClick={() => {
+          window.scrollTo({
+            top: window.innerHeight,
+            behavior: "smooth",
+          });
+        }}
+        className="relative bottom-5 cursor-pointer hover:scale-110 transition-transform"
+      >
         <Icons
           name="arrowDown"
           size={40}
           animated
           animationType="slide-down"
-          className="absolute bottom-12"
         />
-      </div>
+      </button>
     </div>
   );
 };
