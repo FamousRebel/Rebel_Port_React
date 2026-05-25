@@ -7,7 +7,6 @@ import type { ResourceItem } from "@/components/Sections/Projects/ResourceCard";
 const projectsData: ResourceItem[] = [
   {
     id: 1,
-    icon: "N",
     color: "#6366f1",
     title: "NovaUI Framework",
     subTitle: "Vue3 Component Library",
@@ -19,7 +18,6 @@ const projectsData: ResourceItem[] = [
   },
   {
     id: 2,
-    icon: "D",
     color: "#3b82f6",
     title: "DataFlow Vis",
     subTitle: "Real-time Data Visualization",
@@ -33,7 +31,6 @@ const projectsData: ResourceItem[] = [
   },
   {
     id: 3,
-    icon: "A",
     color: "#f97316",
     title: "AutoShield OS",
     subTitle: "Secure Operating System",
@@ -48,7 +45,6 @@ const projectsData: ResourceItem[] = [
   },
   {
     id: 4,
-    icon: "G",
     color: "#a855f7",
     title: "GraphCore Engine",
     subTitle: "Graph Database Engine",
@@ -62,7 +58,6 @@ const projectsData: ResourceItem[] = [
   },
   {
     id: 5,
-    icon: "E",
     color: "#22c55e",
     title: "EcoNode CMS",
     subTitle: "Headless Content Management",
@@ -77,7 +72,6 @@ const projectsData: ResourceItem[] = [
   },
   {
     id: 6,
-    icon: "P",
     color: "#ec4899",
     title: "Prism UI Kit",
     subTitle: "Design System Components",
@@ -95,7 +89,6 @@ const projectsData: ResourceItem[] = [
 const toolsData: ResourceItem[] = [
   {
     id: 1,
-    icon: "E",
     color: "#06b6d4",
     title: "Excalidraw",
     subTitle: "Collaborative Drawing",
@@ -104,7 +97,6 @@ const toolsData: ResourceItem[] = [
   },
   {
     id: 2,
-    icon: "J",
     color: "#f97316",
     title: "JSON Hero",
     subTitle: "JSON Viewer",
@@ -113,7 +105,6 @@ const toolsData: ResourceItem[] = [
   },
   {
     id: 3,
-    icon: "S",
     color: "#22c55e",
     title: "Squoosh",
     subTitle: "Image Compression",
@@ -122,7 +113,6 @@ const toolsData: ResourceItem[] = [
   },
   {
     id: 4,
-    icon: "C",
     color: "#a855f7",
     title: "Color Hunt",
     subTitle: "Color Palette Library",
@@ -131,7 +121,6 @@ const toolsData: ResourceItem[] = [
   },
   {
     id: 5,
-    icon: "R",
     color: "#6366f1",
     title: "Regex101",
     subTitle: "Regex Testing Tool",
@@ -140,7 +129,6 @@ const toolsData: ResourceItem[] = [
   },
   {
     id: 6,
-    icon: "P",
     color: "#3b82f6",
     title: "Postman",
     subTitle: "API Development Platform",
