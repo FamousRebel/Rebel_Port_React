@@ -46,7 +46,7 @@ const FeaturedSection = <T extends CardItem>({
   }, [api]);
 
   return (
-    <div>
+    <div className="w-full max-w-7xl mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
         <div className="flex gap-2 items-center">
           {sectionIcon ? (
@@ -85,25 +85,23 @@ const FeaturedSection = <T extends CardItem>({
           </div>
         </div>
       </div>
-      <div>
-        <Carousel
-          className="max-w-full"
-          setApi={setApi}
-          opts={{ slidesToScroll: 2, watchDrag: false }}
-        >
-          <CarouselContent className="mt-1">
-            {list?.map((item) => (
-              <CarouselItem
-                key={item?.id}
-                className="basis-1/4"
-                onClick={() => window.open(item?.url || "", "_blank")}
-              >
-                {renderItem?.(item)}
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-      </div>
+      <Carousel
+        className="max-w-full"
+        setApi={setApi}
+        opts={{ slidesToScroll: 2, watchDrag: false }}
+      >
+        <CarouselContent className="mt-1">
+          {list?.map((item) => (
+            <CarouselItem
+              key={item?.id}
+              className="basis-1/4"
+              onClick={() => window.open(item?.url || "", "_blank")}
+            >
+              {renderItem?.(item)}
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
     </div>
   );
 };

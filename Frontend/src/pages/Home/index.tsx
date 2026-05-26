@@ -118,7 +118,7 @@ const projectsData: ProjectsItem[] = [
     title: "Port-Engine",
     description:
       "下一代静态站点生成引擎，专注于性能和开发者体验，支持多框架渲染。",
-    techStack: "Go / React",
+    techStack: "Go",
     star: 452,
     date: "3 天前",
     color: "#3b82f6",
@@ -129,7 +129,7 @@ const projectsData: ProjectsItem[] = [
     title: "SwiftCMS",
     description:
       "轻量级无头 CMS，支持 Markdown 与实时预览，专为内容型网站打造。",
-    techStack: "Rust / Vue3",
+    techStack: "Rust",
     star: 1287,
     date: "1 周前",
     color: "#10b981",
@@ -139,7 +139,7 @@ const projectsData: ProjectsItem[] = [
     id: 3,
     title: "FlowBuilder",
     description: "低代码工作流引擎，可视化拖拽编排，一键生成前后端接口。",
-    techStack: "Node.js / React",
+    techStack: "Node.js",
     star: 893,
     date: "2 天前",
     color: "#8b5cf6",
@@ -150,7 +150,7 @@ const projectsData: ProjectsItem[] = [
     title: "FastORM",
     description:
       "高性能 Go ORM 框架，支持多数据库方言与链式查询，内置 SQL 优化器。",
-    techStack: "Go / GORM",
+    techStack: "Go",
     star: 641,
     date: "5 天前",
     color: "#f59e0b",
@@ -160,7 +160,7 @@ const projectsData: ProjectsItem[] = [
     id: 5,
     title: "VuePress-Plus",
     description: "VuePress 增强版，内置全文搜索、深色模式与组件化文档主题。",
-    techStack: "TypeScript / Vue3",
+    techStack: "TypeScript",
     star: 2156,
     date: "4 小时前",
     color: "#4f46e5",
@@ -170,7 +170,7 @@ const projectsData: ProjectsItem[] = [
     id: 6,
     title: "EdgeCache",
     description: "轻量级边缘缓存服务，支持 Redis 协议兼容，毫秒级响应。",
-    techStack: "Rust / Redis",
+    techStack: "Rust",
     star: 378,
     date: "2 周前",
     color: "#06b6d4",
@@ -180,7 +180,7 @@ const projectsData: ProjectsItem[] = [
     id: 7,
     title: "ReactUI-Kit",
     description: "企业级 React 组件库，支持主题定制与无障碍适配，开箱即用。",
-    techStack: "TypeScript / React",
+    techStack: "TypeScript",
     star: 3529,
     date: "1 天前",
     color: "#ec4899",
@@ -190,7 +190,7 @@ const projectsData: ProjectsItem[] = [
     id: 8,
     title: "GoMicro-Gateway",
     description: "微服务 API 网关，支持限流、熔断与灰度发布，配置零重启生效。",
-    techStack: "Go / gRPC",
+    techStack: "Go",
     star: 724,
     date: "6 天前",
     color: "#6366f1",
@@ -200,7 +200,7 @@ const projectsData: ProjectsItem[] = [
     id: 9,
     title: "DataViz-Lite",
     description: "轻量级数据可视化工具，拖拽式配置图表，支持导出图片与 PDF。",
-    techStack: "JavaScript / ECharts",
+    techStack: "JavaScript",
     star: 967,
     date: "3 周前",
     color: "#14b8a6",
@@ -210,7 +210,7 @@ const projectsData: ProjectsItem[] = [
     id: 10,
     title: "NestAdmin",
     description: "基于 NestJS 的后台管理模板，内置权限管理与动态菜单配置。",
-    techStack: "TypeScript / NestJS",
+    techStack: "TypeScript",
     star: 1543,
     date: "12 小时前",
     color: "#f43f5e",
@@ -222,7 +222,7 @@ const Home = () => {
   return (
     <div className="bg-dot-pattern">
       <BusinessCard />
-      <div className="h-[calc(100vh-64px)] flex flex-col justify-center gap-20 max-w-7xl mx-auto">
+      <div className="h-[calc(100vh-64px)] flex flex-col justify-center">
         <FeaturedSection
           type="Projects"
           title="最新项目"
@@ -247,7 +247,9 @@ const Home = () => {
                   className="group-hover:text-[#000000] text-[#666666]"
                 />
               </div>
-              <CardDescription>{item?.description}</CardDescription>
+              <CardDescription className="line-clamp-2 overflow-hidden text-ellipsis">
+                {item?.description}
+              </CardDescription>
               <CardHorizontalLine />
               <div className="flex justify-between text-xs gap-4 text-[#666666]">
                 <div className="flex flex-none items-center gap-1">
@@ -287,7 +289,9 @@ const Home = () => {
                   {item?.tag}
                 </Badge>
               </div>
-              <div className="text-xl font-bold">{item?.title}</div>
+              <div className="text-xl font-bold line-clamp-2 overflow-hidden text-ellipsis">
+                {item?.title}
+              </div>
               <CardDescription className="line-clamp-2 overflow-hidden text-ellipsis">
                 {item?.description}
               </CardDescription>
