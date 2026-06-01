@@ -94,7 +94,7 @@ const ContributionChart = () => {
         <div className="line-clamp-2 max-w-155.5 text-center text-lg mb-26">
           展示了我最近参与度前端架构、开源工具及技术实践中的探索与沉淀。保持对技术的热爱，持续交付高质量的代码作品
         </div>
-        <Card className="w-full max-w-255.5 flex flex-col items-center gap-4 bg-white">
+        <Card className="w-full max-w-255.5 flex flex-col items-center gap-4">
           <div className="flex justify-between items-center w-full">
             <div className="flex flex-col items-start gap-2">
               <div className="text-3xl font-bold gap-1 flex items-center">
@@ -186,12 +186,7 @@ const ContributionChart = () => {
         }}
         className="relative bottom-5 cursor-pointer hover:scale-110 transition-transform"
       >
-        <Icons
-          name="arrowDown"
-          size={40}
-          animated
-          animationType="slide-down"
-        />
+        <Icons name="arrowDown" size={40} animated animationType="slide-down" />
       </button>
     </div>
   );

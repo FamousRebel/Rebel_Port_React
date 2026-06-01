@@ -229,7 +229,7 @@ const Home = () => {
           sectionIcon="layoutGrid"
           list={projectsData}
           renderItem={(item: ProjectsItem) => (
-            <Card cursor="pointer">
+            <Card cursor="pointer" className="bg-[#f9fafb]">
               <div className="flex justify-between">
                 <div
                   className={
@@ -273,7 +273,7 @@ const Home = () => {
           sectionIcon="rss"
           list={blogData}
           renderItem={(item: BlogItem) => (
-            <Card cursor="pointer">
+            <Card cursor="pointer" className="bg-[#f9fafb]">
               <div className="flex gap-4 items-center text-xs text-[#666666] mb-4">
                 {item?.date}
                 <Badge

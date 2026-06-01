@@ -144,7 +144,7 @@ const ResourceCard = ({
             >
               <Card
                 cursor={type === "tool" ? "pointer" : "default"}
-                className="h-full bg-white"
+                className="h-full"
               >
                 <div className="flex items-start justify-between mb-4 gap-4">
                   <div

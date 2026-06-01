@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import type { ReactNode } from "react";
 
 const cardVariants = cva(
-  "group flex flex-col justify-center border border-gray-300 rounded-md p-6 bg-[#f9fafb] transition-all duration-300",
+  "group flex flex-col justify-center border border-gray-300 rounded-md p-6 bg-white transition-all duration-300",
   {
     variants: {
       cursor: {
