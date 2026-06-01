@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/input-group";
 import { Kbd } from "@/components/ui/kbd";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import type { SearchTabs, SearchItem } from "@/types/searchTypes";
+import type { SearchTabs, SearchItem } from "@/types/search.types";
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import {
   Item,

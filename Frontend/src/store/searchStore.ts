@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { SearchItem, SearchTabs } from "@/types/searchTypes";
+import type { SearchItem, SearchTabs } from "@/types/search.types";
 import { immer } from "zustand/middleware/immer";
 
 interface SearchStore {

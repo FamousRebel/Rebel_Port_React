@@ -5,10 +5,10 @@ import {
   CategoryFilter,
   TagCloud,
 } from "@/components/Sections/BlogList";
-import type { blogDataItem } from "@/types/cardItemTypes";
+import type { BlogItem } from "@/types/blog.types";
 import React from "react";
 
-const blogData: blogDataItem[] = [
+const blogData: BlogItem[] = [
   {
     id: 1,
     date: "2024年12月15日",

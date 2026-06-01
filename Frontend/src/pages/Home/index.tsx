@@ -6,10 +6,11 @@ import {
 import Icons from "@/components/Common/Icons";
 import { BusinessCard, FeaturedSection } from "@/components/Sections/Home";
 import { Badge } from "@/components/ui/badge";
-import type { BlogItem, ProjectsItem } from "@/types/cardItemTypes";
+import type { BaseBlogItem } from "@/types/blog.types";
+import type { ProjectsItem } from "@/types/card.types";
 import React from "react";
 
-const blogData: BlogItem[] = [
+const blogData: BaseBlogItem[] = [
   {
     id: 1,
     date: "2023年11月20日",
@@ -272,7 +273,7 @@ const Home = () => {
           title="近期文章"
           sectionIcon="rss"
           list={blogData}
-          renderItem={(item: BlogItem) => (
+          renderItem={(item: BaseBlogItem) => (
             <Card cursor="pointer" className="bg-[#f9fafb]">
               <div className="flex gap-4 items-center text-xs text-[#666666] mb-4">
                 {item?.date}

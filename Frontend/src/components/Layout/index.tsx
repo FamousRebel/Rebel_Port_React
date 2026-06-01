@@ -1,5 +1,5 @@
 import DefaultLayout from "@/components/Layout/DefaultLayout";
-import type { LayoutProps } from "@/types/layoutProps";
+import type { LayoutProps } from "@/types/layout.types";
 
 const Layout = (props: LayoutProps) => {
   const { children, ...Options } = props;

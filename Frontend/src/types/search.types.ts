@@ -1,14 +1,12 @@
+import type { BaseContentItem } from "./common.types";
+
 interface SearchTabs {
   id: number;
   name: string;
   type: "all" | "project" | "blog";
 }
 
-interface SearchItem {
-  id: number;
-  title: string;
-  url: string;
-  description: string;
+interface SearchItem extends BaseContentItem {
   type: string;
   imageUrl: string;
 }

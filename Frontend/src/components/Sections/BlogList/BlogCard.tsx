@@ -3,10 +3,10 @@ import { Card, CardDescription } from "@/components/Common/Card";
 import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
 import Icons from "@/components/Common/Icons";
-import type { blogDataItem } from "@/types/cardItemTypes";
+import type { BlogItem } from "@/types/blog.types";
 
 interface BlogCardProps {
-  item: blogDataItem;
+  item: BlogItem;
 }
 
 const BlogCard = ({ item }: BlogCardProps) => {

@@ -6,7 +6,7 @@ import Links from "@/pages/Links";
 import About from "@/pages/About";
 import NotFound from "@/pages/404";
 import Layout from "@/components/Layout";
-import type { RouteConfigType } from "@/types/routesType";
+import type { RouteConfigType } from "@/types/route.types";
 
 export const routesConfig: RouteConfigType[] = [
   {

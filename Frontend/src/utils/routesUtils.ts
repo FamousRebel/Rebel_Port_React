@@ -1,4 +1,4 @@
-import type { RouteConfigType, NavigationRouteType } from "@/types/routesType";
+import type { RouteConfigType, NavigationRouteType } from "@/types/route.types";
 import type { RouteObject } from "react-router-dom";
 
 export class RouteBuilder {

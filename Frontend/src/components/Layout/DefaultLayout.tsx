@@ -4,7 +4,7 @@ import {
   useNavigate,
   type OutletProps,
 } from "react-router-dom";
-import type { LayoutProps } from "@/types/layoutProps";
+import type { LayoutProps } from "@/types/layout.types";
 import Header from "@/components/Layout/Header";
 import { useEffect } from "react";
 

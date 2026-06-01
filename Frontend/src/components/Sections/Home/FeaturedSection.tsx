@@ -8,7 +8,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
-import type { CardItem } from "@/types/cardItemTypes";
+import type { CardItem } from "@/types/card.types";
 import { useNavigate } from "react-router-dom";
 
 interface featuredSectionProps<T extends CardItem> {
