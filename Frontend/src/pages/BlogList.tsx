@@ -164,13 +164,13 @@ const BlogList = () => {
     <div className="min-h-screen bg-[#f8f6f6]">
       <BlogListHero />
       <div className="w-full max-w-7xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-[1fr_320px] gap-8 items-start">
+          <div className="space-y-6 w-full">
             {blogData.map((item) => (
               <BlogCard key={item.id} item={item} />
             ))}
           </div>
-          <div className="lg:col-span-1 space-y-6">
+          <div className="w-80 flex flex-col gap-8 sticky top-20">
             <AuthorInfo />
             <CategoryFilter />
             <TagCloud />
