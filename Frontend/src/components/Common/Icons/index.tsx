@@ -120,3 +120,4 @@ const Icons = ({
 };
 
 export default Icons;
+export type { IconsProps };

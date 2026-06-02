@@ -16,17 +16,16 @@ const blogData: BlogItem[] = [
     title: "深入理解 React Concurrent Mode",
     description:
       "探索并发模式如何改变 React 应用的渲染方式，以及如何利用其特性提升应用流畅度。",
-    url: "/article/react-concurrent-mode",
+    blogId: 1,
     techStack: [
       { name: "React", color: "#61DAFB" },
       { name: "TypeScript", color: "#3178C6" },
     ],
     wordCount: 15680,
     views: 125680,
-    comments: 342,
+    message: 342,
     star: 5890,
-    cover:
-      "https://neeko-copilot.bytedance.net/api/text_to_image?prompt=modern%20React%20web%20development%20abstract%20illustration&image_size=landscape_4_3",
+    cover: "https://www.loliapi.com/bg/",
   },
   {
     id: 2,
@@ -35,7 +34,7 @@ const blogData: BlogItem[] = [
     title: "Webpack 5 性能优化实战指南",
     description:
       "从打包速度到产物体积，全面优化你的 Webpack 构建流程，让你的项目飞起来。",
-    url: "/article/webpack-optimization",
+    blogId: 2,
     techStack: [
       { name: "Webpack", color: "#8DD6F9" },
       { name: "Vite", color: "#646CFF" },
@@ -43,10 +42,9 @@ const blogData: BlogItem[] = [
     ],
     wordCount: 12350,
     views: 98450,
-    comments: 286,
+    message: 286,
     star: 4230,
-    cover:
-      "https://neeko-copilot.bytedance.net/api/text_to_image?prompt=webpack%20build%20optimization%20abstract%20tech%20illustration&image_size=landscape_4_3",
+    cover: "https://www.loliapi.com/bg/",
   },
   {
     id: 3,
@@ -55,7 +53,7 @@ const blogData: BlogItem[] = [
     title: "Node.js 微服务架构设计与实践",
     description:
       "基于 Node.js 构建高可用微服务系统，涵盖服务发现、负载均衡、熔断降级等核心概念。",
-    url: "/article/nodejs-microservices",
+    blogId: 3,
     techStack: [
       { name: "Node.js", color: "#339933" },
       { name: "Docker", color: "#2496ED" },
@@ -63,10 +61,9 @@ const blogData: BlogItem[] = [
     ],
     wordCount: 18920,
     views: 156780,
-    comments: 456,
+    message: 456,
     star: 7890,
-    cover:
-      "https://neeko-copilot.bytedance.net/api/text_to_image?prompt=microservices%20architecture%20nodejs%20cloud%20infrastructure&image_size=landscape_4_3",
+    cover: "https://www.loliapi.com/bg/",
   },
   {
     id: 4,
@@ -75,17 +72,16 @@ const blogData: BlogItem[] = [
     title: "Vue 3 组合式 API 深度解析",
     description:
       "深入理解 Vue 3 的组合式 API，掌握 Composition API 的设计思想和最佳实践。",
-    url: "/article/vue3-composition-api",
+    blogId: 4,
     techStack: [
       { name: "Vue.js", color: "#42B883" },
       { name: "Pinia", color: "#E64A19" },
     ],
     wordCount: 14520,
     views: 112340,
-    comments: 312,
+    message: 312,
     star: 5120,
-    cover:
-      "https://neeko-copilot.bytedance.net/api/text_to_image?prompt=vue%20framework%20modern%20frontend%20abstract%20design&image_size=landscape_4_3",
+    cover: "https://www.loliapi.com/bg/",
   },
   {
     id: 5,
@@ -94,17 +90,16 @@ const blogData: BlogItem[] = [
     title: "PostgreSQL 高级查询优化技巧",
     description:
       "从索引设计到查询计划分析，全方位提升 PostgreSQL 数据库性能，应对海量数据挑战。",
-    url: "/article/postgresql-optimization",
+    blogId: 5,
     techStack: [
       { name: "PostgreSQL", color: "#4169E1" },
       { name: "Redis", color: "#DC382D" },
     ],
     wordCount: 16780,
     views: 89650,
-    comments: 234,
+    message: 234,
     star: 3890,
-    cover:
-      "https://neeko-copilot.bytedance.net/api/text_to_image?prompt=postgresql%20database%20query%20optimization%20data%20visualization&image_size=landscape_4_3",
+    cover: "https://www.loliapi.com/bg/",
   },
   {
     id: 6,
@@ -113,7 +108,7 @@ const blogData: BlogItem[] = [
     title: "Monorepo 架构最佳实践",
     description:
       "探索 Monorepo 的优势与挑战，学习如何使用 Turborepo 构建高效的前端工程体系。",
-    url: "/article/monorepo-best-practices",
+    blogId: 6,
     techStack: [
       { name: "Turborepo", color: "#FF6B6B" },
       { name: "NX", color: "#143055" },
@@ -121,10 +116,9 @@ const blogData: BlogItem[] = [
     ],
     wordCount: 13240,
     views: 76540,
-    comments: 198,
+    message: 198,
     star: 3210,
-    cover:
-      "https://neeko-copilot.bytedance.net/api/text_to_image?prompt=monorepo%20architecture%20code%20organization%20modern%20dev&image_size=landscape_4_3",
+    cover: "https://www.loliapi.com/bg/",
   },
   {
     id: 7,
@@ -133,17 +127,16 @@ const blogData: BlogItem[] = [
     title: "Web 应用安全防护指南",
     description:
       "从 XSS 到 CSRF，从 SQL 注入到 SSRF，全面了解 Web 安全威胁与防护策略。",
-    url: "/article/web-security-guide",
+    blogId: 7,
     techStack: [
       { name: "OWASP", color: "#EF4444" },
       { name: "CSP", color: "#8B5CF6" },
     ],
     wordCount: 17890,
     views: 145230,
-    comments: 423,
+    message: 423,
     star: 6540,
-    cover:
-      "https://neeko-copilot.bytedance.net/api/text_to_image?prompt=web%20security%20shield%20protection%20cyber%20defense&image_size=landscape_4_3",
+    cover: "https://www.loliapi.com/bg/",
   },
   {
     id: 8,
@@ -152,7 +145,7 @@ const blogData: BlogItem[] = [
     title: "Serverless 架构设计模式",
     description:
       "探索 Serverless 的核心概念，学习如何设计无服务器应用，降低运维成本。",
-    url: "/article/serverless-patterns",
+    blogId: 8,
     techStack: [
       { name: "AWS Lambda", color: "#FF9900" },
       { name: "Vercel", color: "#000000" },
@@ -160,10 +153,9 @@ const blogData: BlogItem[] = [
     ],
     wordCount: 15120,
     views: 108960,
-    comments: 289,
+    message: 289,
     star: 4670,
-    cover:
-      "https://neeko-copilot.bytedance.net/api/text_to_image?prompt=serverless%20cloud%20computing%20modern%20architecture&image_size=landscape_4_3",
+    cover: "https://www.loliapi.com/bg/",
   },
 ];
 

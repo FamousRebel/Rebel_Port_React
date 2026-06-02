@@ -4,20 +4,20 @@ export interface TechStack {
 }
 
 export interface BaseBlogItem {
-  id: number;
-  title: string;
-  date: string;
-  color: string;
-  description: string;
-  url: string;
-  tag: string;
+  id: number; // ID
+  title: string; // 标题
+  date: string; // 发布时间
+  color?: string; // 颜色
+  description: string; // 简述
+  blogId: number; // 博客ID
+  tag: string; // 分类
 }
 
 export interface BlogItem extends BaseBlogItem {
-  techStack: TechStack[];
-  wordCount: number;
-  views: number;
-  comments: number;
-  star: number;
-  cover: string;
+  techStack: TechStack[]; // 技术栈
+  wordCount: number; // 字数
+  views: number; // 浏览数
+  message: number; // 留言数
+  star: number; // 收藏数
+  cover: string; // 封面
 }
