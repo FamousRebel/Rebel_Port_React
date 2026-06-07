@@ -6,6 +6,8 @@ const CardHorizontalLine = ({
 }: {
   className?: string;
 }) => {
-  return <span className={cn("border-b border-gray-300 my-4", className)} />;
+  return (
+    <span className={cn("w-full border-b border-gray-300 my-4", className)} />
+  );
 };
 export default CardHorizontalLine;
