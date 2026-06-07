@@ -4,6 +4,7 @@ import {
   AuthorInfo,
   CategoryFilter,
   TagCloud,
+  ArchiveWidget,
 } from "@/components/Sections/BlogList";
 import type { BlogItem } from "@/types/blog.types";
 import React from "react";
@@ -172,6 +173,7 @@ const BlogList = () => {
           </div>
           <div className="w-80 flex flex-col gap-8 sticky top-20">
             <AuthorInfo />
+            <ArchiveWidget />
             <CategoryFilter />
             <TagCloud />
           </div>
