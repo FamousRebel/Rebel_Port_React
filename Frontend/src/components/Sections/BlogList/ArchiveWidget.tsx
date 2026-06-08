@@ -132,18 +132,22 @@ const ArchiveWidget = () => {
     );
   };
   return (
-    <Card className="flex flex-col items-center">
-      <div className="flex justify-between items-center cursor-pointer w-full mb-6">
-        <h3 className="text-lg font-bold flex gap-2">
-          <Icons name="calendarDays" />
-          归档
-        </h3>
+    <Card>
+      <div className="flex justify-between items-center cursor-pointer mb-6 group">
+        <div className="flex items-center gap-2">
+          <Icons
+            name="calendarDays"
+            size={22}
+            className="group-hover:scale-110"
+          />
+          <h3 className="text-lg font-bold flex gap-2">归档</h3>
+        </div>
         <CardChevron className="static" />
       </div>
       <WeekDaysGrid />
       <CalendarCells />
       <CardHorizontalLine />
-      <div className="text-xs text-gray-400">
+      <div className="text-xs text-gray-400 text-center">
         {YEAR}年 {MONTH}月
       </div>
     </Card>
