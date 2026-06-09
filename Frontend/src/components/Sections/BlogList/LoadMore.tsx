@@ -22,10 +22,9 @@ const LoadMore = () => {
             fill="currentColor"
           ></path>
         </svg>
-        <span className="text-sm font-medium tracking-wide">正在加载更多文章...</span>
-      </div>
-      <div className="w-32 h-1 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-        <div className="h-full bg-primary/30 w-1/2 animate-[shimmer_2s_infinite] rounded-full"></div>
+        <span className="text-sm font-medium tracking-wide">
+          正在加载更多文章...
+        </span>
       </div>
     </div>
   );

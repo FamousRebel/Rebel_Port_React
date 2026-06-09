@@ -13,7 +13,7 @@ import React from "react";
 const blogData: BlogItem[] = [
   {
     id: 1,
-    date: "2024年12月15日",
+    date: "2024-12-15",
     tag: "前端前沿",
     title: "深入理解 React Concurrent Mode",
     description:
@@ -31,7 +31,7 @@ const blogData: BlogItem[] = [
   },
   {
     id: 2,
-    date: "2024年11月28日",
+    date: "2024-11-28",
     tag: "性能优化",
     title: "Webpack 5 性能优化实战指南",
     description:
@@ -50,7 +50,7 @@ const blogData: BlogItem[] = [
   },
   {
     id: 3,
-    date: "2024年11月10日",
+    date: "2024-11-10",
     tag: "后端技术",
     title: "Node.js 微服务架构设计与实践",
     description:
@@ -69,7 +69,7 @@ const blogData: BlogItem[] = [
   },
   {
     id: 4,
-    date: "2024年10月25日",
+    date: "2024-10-25",
     tag: "前端框架",
     title: "Vue 3 组合式 API 深度解析",
     description:
@@ -87,7 +87,7 @@ const blogData: BlogItem[] = [
   },
   {
     id: 5,
-    date: "2024年10月08日",
+    date: "2024-10-08",
     tag: "数据库",
     title: "PostgreSQL 高级查询优化技巧",
     description:
@@ -105,7 +105,7 @@ const blogData: BlogItem[] = [
   },
   {
     id: 6,
-    date: "2024年09月20日",
+    date: "2024-09-20",
     tag: "前端工程化",
     title: "Monorepo 架构最佳实践",
     description:
@@ -124,7 +124,7 @@ const blogData: BlogItem[] = [
   },
   {
     id: 7,
-    date: "2024年09月05日",
+    date: "2024-09-05",
     tag: "安全",
     title: "Web 应用安全防护指南",
     description:
@@ -142,7 +142,7 @@ const blogData: BlogItem[] = [
   },
   {
     id: 8,
-    date: "2024年08月18日",
+    date: "2024-08-18",
     tag: "云原生",
     title: "Serverless 架构设计模式",
     description:
@@ -162,6 +162,25 @@ const blogData: BlogItem[] = [
 ];
 
 const BlogList = () => {
+  const tags = blogData.flatMap((item) =>
+    item.techStack.map((tech) => ({
+      label: tech.name,
+      color: tech.color,
+    }))
+  );
+
+  const tagCounts = blogData.reduce((acc, item) => {
+    acc[item.tag] = (acc[item.tag] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+
+  const categories = Object.entries(tagCounts).map(([label, count]) => ({
+    label,
+    count,
+  }));
+
+  const articleDates = blogData.map((item) => item.date);
+
   return (
     <div className="min-h-screen bg-[#f8f6f6]">
       <BlogListHero />
@@ -175,13 +194,14 @@ const BlogList = () => {
           </div>
           <div className="w-80 flex flex-col gap-8 sticky top-20">
             <AuthorInfo />
-            <ArchiveWidget />
-            <CategoryFilter />
-            <TagCloud />
+            <ArchiveWidget articleDates={articleDates} />
+            <CategoryFilter categories={categories} />
+            <TagCloud tags={tags} />
           </div>
         </div>
       </div>
     </div>
   );
 };
+
 export default BlogList;

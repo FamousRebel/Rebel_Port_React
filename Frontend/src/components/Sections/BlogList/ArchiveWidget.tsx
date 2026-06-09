@@ -1,7 +1,7 @@
 import { Card, CardHorizontalLine } from "@/components/Common/Card";
 import CardChevron from "@/components/Common/Card/CardChevron";
 import Icons from "@/components/Common/Icons";
-import React, { useEffect } from "react";
+import React from "react";
 
 interface CalendarDays {
   year: number;
@@ -11,18 +11,17 @@ interface CalendarDays {
   hasArticle: boolean;
 }
 
-const ArchiveWidget = () => {
+interface ArchiveWidgetProps {
+  articleDates: string[];
+}
+
+const ArchiveWidget = ({ articleDates }: ArchiveWidgetProps) => {
   const WEEKDAYS: string[] = ["周", "一", "二", "三", "四", "五", "六"]; // 生成一周标题
   const DATE: Date = new Date(); //创建当前时间
   const YEAR: number = DATE.getFullYear(); // 获取当前年
   const MONTH: number = DATE.getMonth() + 1; // 获取当前月
 
-  const articleDates = new Set([
-    "2026-05-31",
-    "2026-06-03",
-    "2026-06-15",
-    "2026-06-20",
-  ]);
+  const articleDatesSet = new Set(articleDates);
 
   // 获取当月天数
   const getDaysInMonth = (year: number, month: number) => {
@@ -61,20 +60,19 @@ const ArchiveWidget = () => {
         month: prevMonth,
         day: i,
         isCurrentMonth: false,
-        hasArticle: articleDates.has(dateStr),
+        hasArticle: articleDatesSet.has(dateStr),
       });
     }
 
     // 生成当月日期
     for (let i = 1; i <= daysInMonth; i++) {
       const dateStr = formatDate(year, month, i);
-      console.log(dateStr);
       days.push({
         year,
         month,
         day: i,
         isCurrentMonth: true,
-        hasArticle: articleDates.has(dateStr),
+        hasArticle: articleDatesSet.has(dateStr),
       });
     }
 

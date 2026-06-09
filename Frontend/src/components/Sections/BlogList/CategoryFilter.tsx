@@ -4,16 +4,16 @@ import CardChevron from "@/components/Common/Card/CardChevron";
 import { Badge } from "@/components/ui/badge";
 import Icons from "@/components/Common/Icons";
 
-const CategoryFilter = () => {
-  const categories = [
-    { label: "前端开发", count: 18 },
-    { label: "后端开发", count: 12 },
-    { label: "项目管理", count: 10 },
-    { label: "UI/UX 设计", count: 7 },
-    { label: "效能工具", count: 5 },
-    { label: "日常生活", count: 9 },
-  ];
+export interface CategoryItem {
+  label: string;
+  count: number;
+}
 
+interface CategoryFilterProps {
+  categories: CategoryItem[];
+}
+
+const CategoryFilter = ({ categories }: CategoryFilterProps) => {
   return (
     <Card>
       <div className="flex items-center justify-between mb-6 cursor-pointer">
