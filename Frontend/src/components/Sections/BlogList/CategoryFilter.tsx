@@ -16,7 +16,7 @@ const CategoryFilter = () => {
 
   return (
     <Card>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-6 cursor-pointer">
         <div className="flex items-center gap-2">
           <Icons name="folderOpen" size={22} />
           <h3 className="text-lg font-bold text-slate-700 dark:text-slate-200">
