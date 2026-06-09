@@ -8,9 +8,15 @@ import {
   ArchiveWidget,
 } from "@/components/Sections/BlogList";
 import type { BlogItem } from "@/types/blog.types";
+import type { TagItem } from "@/components/Sections/BlogList/TagCloud";
+import type { CategoryItem } from "@/components/Sections/BlogList/CategoryFilter";
 import React from "react";
 
-const blogData: BlogItem[] = [
+// ======================== 独立数据源 ========================
+// 后续接入后端时，分别替换为对应的 API 请求
+
+/** 博客列表数据（后续分页请求） */
+const blogList: BlogItem[] = [
   {
     id: 1,
     date: "2024-12-15",
@@ -161,33 +167,61 @@ const blogData: BlogItem[] = [
   },
 ];
 
+/** 标签云数据（独立的 API 请求） */
+const tags: TagItem[] = [
+  { label: "React", color: "#61DAFB" },
+  { label: "TypeScript", color: "#3178C6" },
+  { label: "Webpack", color: "#8DD6F9" },
+  { label: "Vite", color: "#646CFF" },
+  { label: "Node.js", color: "#339933" },
+  { label: "Docker", color: "#2496ED" },
+  { label: "Kubernetes", color: "#326CE5" },
+  { label: "Vue.js", color: "#42B883" },
+  { label: "Pinia", color: "#E64A19" },
+  { label: "PostgreSQL", color: "#4169E1" },
+  { label: "Redis", color: "#DC382D" },
+  { label: "Turborepo", color: "#FF6B6B" },
+  { label: "NX", color: "#143055" },
+  { label: "pnpm", color: "#F69220" },
+  { label: "OWASP", color: "#EF4444" },
+  { label: "CSP", color: "#8B5CF6" },
+  { label: "AWS Lambda", color: "#FF9900" },
+  { label: "Vercel", color: "#000000" },
+  { label: "Cloudflare", color: "#F38020" },
+];
+
+/** 分类数据（独立的 API 请求） */
+const categories: CategoryItem[] = [
+  { label: "前端前沿", count: 1 },
+  { label: "性能优化", count: 1 },
+  { label: "后端技术", count: 1 },
+  { label: "前端框架", count: 1 },
+  { label: "数据库", count: 1 },
+  { label: "前端工程化", count: 1 },
+  { label: "安全", count: 1 },
+  { label: "云原生", count: 1 },
+];
+
+/** 归档日期数据（独立的 API 请求，当月和上月发布文章日期） */
+const articleDates: string[] = [
+  "2024-12-15",
+  "2024-11-28",
+  "2024-11-10",
+  "2024-10-25",
+  "2024-10-08",
+  "2024-09-20",
+  "2024-09-05",
+  "2024-08-18",
+];
+
 const BlogList = () => {
-  const tags = blogData.flatMap((item) =>
-    item.techStack.map((tech) => ({
-      label: tech.name,
-      color: tech.color,
-    }))
-  );
-
-  const tagCounts = blogData.reduce((acc, item) => {
-    acc[item.tag] = (acc[item.tag] || 0) + 1;
-    return acc;
-  }, {} as Record<string, number>);
-
-  const categories = Object.entries(tagCounts).map(([label, count]) => ({
-    label,
-    count,
-  }));
-
-  const articleDates = blogData.map((item) => item.date);
-
   return (
     <div className="min-h-screen bg-[#f8f6f6]">
       <BlogListHero />
       <div className="w-full max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-[1fr_320px] gap-8 items-start">
           <div className="space-y-6 w-full">
-            {blogData.map((item) => (
+            {blogList.map((item) => (
               <BlogCard key={item.id} item={item} />
             ))}
             <LoadMore />
