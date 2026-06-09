@@ -8,12 +8,20 @@ import {
   ArchiveWidget,
 } from "@/components/Sections/BlogList";
 import type { BlogItem } from "@/types/blog.types";
-import React from "react";
+import type { TagItem } from "@/components/Sections/BlogList/TagCloud";
+import type { CategoryItem } from "@/components/Sections/BlogList/CategoryFilter";
+import useBlogFilter from "@/hooks/useBlogFilter";
+import React, { useRef } from "react";
+import Icons from "@/components/Common/Icons";
 
-const blogData: BlogItem[] = [
+// ======================== 独立数据源 ========================
+// 后续接入后端时，分别替换为对应的 API 请求
+
+/** 博客列表数据（后续分页请求） */
+const blogList: BlogItem[] = [
   {
     id: 1,
-    date: "2024-12-15",
+    date: "2026-06-01",
     tag: "前端前沿",
     title: "深入理解 React Concurrent Mode",
     description:
@@ -161,45 +169,118 @@ const blogData: BlogItem[] = [
   },
 ];
 
+/** 标签云数据（独立的 API 请求） */
+const tags: TagItem[] = [
+  { label: "React", color: "#61DAFB" },
+  { label: "TypeScript", color: "#3178C6" },
+  { label: "Webpack", color: "#8DD6F9" },
+  { label: "Vite", color: "#646CFF" },
+  { label: "Node.js", color: "#339933" },
+  { label: "Docker", color: "#2496ED" },
+  { label: "Kubernetes", color: "#326CE5" },
+  { label: "Vue.js", color: "#42B883" },
+  { label: "Pinia", color: "#E64A19" },
+  { label: "PostgreSQL", color: "#4169E1" },
+  { label: "Redis", color: "#DC382D" },
+  { label: "Turborepo", color: "#FF6B6B" },
+  { label: "NX", color: "#143055" },
+  { label: "pnpm", color: "#F69220" },
+  { label: "OWASP", color: "#EF4444" },
+  { label: "CSP", color: "#8B5CF6" },
+  { label: "AWS Lambda", color: "#FF9900" },
+  { label: "Vercel", color: "#000000" },
+  { label: "Cloudflare", color: "#F38020" },
+];
+
+/** 分类数据（独立的 API 请求） */
+const categories: CategoryItem[] = [
+  { label: "前端前沿", count: 1 },
+  { label: "性能优化", count: 1 },
+  { label: "后端技术", count: 1 },
+  { label: "前端框架", count: 1 },
+  { label: "数据库", count: 1 },
+  { label: "前端工程化", count: 1 },
+  { label: "安全", count: 1 },
+  { label: "云原生", count: 1 },
+];
+
+/** 归档日期数据（独立的 API 请求，当月和上月发布文章日期） */
+const articleDates: string[] = [
+  "2026-06-01",
+  "2026-06-15",
+  "2026-06-28",
+  "2026-06-10",
+  "2026-06-25",
+  "2026-06-08",
+  "2026-06-20",
+  "2026-06-05",
+  "2026-05-31",
+];
+
 const BlogList = () => {
-  const tags = blogData.flatMap((item) =>
-    item.techStack.map((tech) => ({
-      label: tech.name,
-      color: tech.color,
-    }))
-  );
+  const firstCardRef = useRef<HTMLDivElement | null>(null);
+  const { filters, filteredList, setTag, setCategory, setDate, clearFilters } =
+    useBlogFilter(blogList, firstCardRef);
 
-  const tagCounts = blogData.reduce((acc, item) => {
-    acc[item.tag] = (acc[item.tag] || 0) + 1;
-    return acc;
-  }, {} as Record<string, number>);
-
-  const categories = Object.entries(tagCounts).map(([label, count]) => ({
-    label,
-    count,
-  }));
-
-  const articleDates = blogData.map((item) => item.date);
+  const hasFilter =
+    filters.selectedTag || filters.selectedCategory || filters.selectedDate;
 
   return (
-    <div className="min-h-screen bg-[#f8f6f6]">
+    <div className="relative min-h-screen bg-[#f8f6f6]">
       <BlogListHero />
       <div className="w-full max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-[1fr_320px] gap-8 items-start">
           <div className="space-y-6 w-full">
-            {blogData.map((item) => (
-              <BlogCard key={item.id} item={item} />
-            ))}
-            <LoadMore />
+            {filteredList.length > 0 ? (
+              filteredList.map((item, index) => (
+                <div
+                  key={item.id}
+                  ref={index === 0 ? firstCardRef : undefined}
+                  style={index === 0 ? { scrollMarginTop: 92 } : undefined}
+                >
+                  <BlogCard item={item} />
+                </div>
+              ))
+            ) : (
+              <div
+                className="text-center text-gray-400 py-20"
+                ref={firstCardRef}
+                style={{ scrollMarginTop: 92 }}
+              >
+                暂无符合条件的文章
+              </div>
+            )}
+            {filteredList.length > 10 && <LoadMore />}
           </div>
           <div className="w-80 flex flex-col gap-8 sticky top-20">
             <AuthorInfo />
-            <ArchiveWidget articleDates={articleDates} />
-            <CategoryFilter categories={categories} />
-            <TagCloud tags={tags} />
+            <ArchiveWidget
+              articleDates={articleDates}
+              selectedDate={filters.selectedDate}
+              onDateClick={setDate}
+            />
+            <CategoryFilter
+              categories={categories}
+              selectedCategory={filters.selectedCategory}
+              onCategoryClick={setCategory}
+            />
+            <TagCloud
+              tags={tags}
+              selectedTag={filters.selectedTag}
+              onTagClick={setTag}
+            />
           </div>
         </div>
       </div>
+      {hasFilter && (
+        <button
+          onClick={clearFilters}
+          title="清空筛选"
+          className="group fixed bottom-8 right-8 z-50 size-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:shadow-xl hover:bg-gray-50 transition-all cursor-pointer"
+        >
+          <Icons name="trash" className="group-hover:scale-110" />
+        </button>
+      )}
     </div>
   );
 };

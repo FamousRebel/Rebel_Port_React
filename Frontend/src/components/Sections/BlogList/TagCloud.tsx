@@ -11,9 +11,11 @@ export interface TagItem {
 
 interface TagCloudProps {
   tags: TagItem[];
+  selectedTag: string | null;
+  onTagClick: (tag: string) => void;
 }
 
-const TagCloud = ({ tags }: TagCloudProps) => {
+const TagCloud = ({ tags, selectedTag, onTagClick }: TagCloudProps) => {
   return (
     <Card>
       <div className="flex items-center justify-between mb-6 cursor-pointer">
@@ -26,20 +28,25 @@ const TagCloud = ({ tags }: TagCloudProps) => {
         <CardChevron className="static" />
       </div>
       <div className="flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <Badge
-            key={tag.label}
-            variant="secondary"
-            className="cursor-pointer hover:opacity-80 transition-opacity"
-            style={{
-              backgroundColor: `${tag.color}15`,
-              color: tag.color,
-              borderColor: `${tag.color}30`,
-            }}
-          >
-            {tag.label}
-          </Badge>
-        ))}
+        {tags.map((tag) => {
+          const isActive = selectedTag === tag.label;
+          return (
+            <Badge
+              key={tag.label}
+              variant="secondary"
+              className="cursor-pointer hover:opacity-80 transition-opacity"
+              onClick={() => onTagClick(tag.label)}
+              style={{
+                backgroundColor: isActive ? `${tag.color}30` : `${tag.color}15`,
+                color: tag.color,
+                borderColor: isActive ? tag.color : `${tag.color}30`,
+                boxShadow: isActive ? `0 0 0 1px ${tag.color}` : undefined,
+              }}
+            >
+              {tag.label}
+            </Badge>
+          );
+        })}
       </div>
     </Card>
   );

@@ -13,9 +13,15 @@ interface CalendarDays {
 
 interface ArchiveWidgetProps {
   articleDates: string[];
+  selectedDate: string | null;
+  onDateClick: (date: string) => void;
 }
 
-const ArchiveWidget = ({ articleDates }: ArchiveWidgetProps) => {
+const ArchiveWidget = ({
+  articleDates,
+  selectedDate,
+  onDateClick,
+}: ArchiveWidgetProps) => {
   const WEEKDAYS: string[] = ["周", "一", "二", "三", "四", "五", "六"]; // 生成一周标题
   const DATE: Date = new Date(); //创建当前时间
   const YEAR: number = DATE.getFullYear(); // 获取当前年
@@ -113,19 +119,29 @@ const ArchiveWidget = ({ articleDates }: ArchiveWidgetProps) => {
   const CalendarCells = () => {
     return (
       <div className="w-full grid grid-cols-7 gap-1 gap-y-1.5 text-center mb-5">
-        {buildCalendarDays(YEAR, MONTH).map((item) => (
-          <div
-            key={`${item.year}-${item.month}`}
-            className={`relative size-8 content-center rounded-sm cursor-default
-              ${!item.isCurrentMonth && "text-slate-300"} 
-              ${item.hasArticle && item.isCurrentMonth && "hover:bg-blue-50 text-blue-400 cursor-pointer"}`}
-          >
-            {item.day}
-            {item.hasArticle && (
-              <span className="absolute bottom-0.5 left-1/2 -translate-x-0.5 inline-block size-1 bg-blue-300 rounded-full" />
-            )}
-          </div>
-        ))}
+        {buildCalendarDays(YEAR, MONTH).map((item, idx) => {
+          const dateStr = formatDate(item.year, item.month, item.day);
+          const isActive = selectedDate === dateStr;
+          return (
+            <div
+              key={`${item.year}-${item.month}-${item.day}-${idx}`}
+              onClick={() => {
+                if (item.hasArticle && item.isCurrentMonth) {
+                  onDateClick(dateStr);
+                }
+              }}
+              className={`relative size-8 content-center rounded-sm cursor-default
+                ${!item.isCurrentMonth && "text-slate-300"}
+                ${item.hasArticle && item.isCurrentMonth && !isActive && "hover:bg-blue-50 text-blue-400 cursor-pointer"}
+                ${isActive && "bg-blue-500 text-white rounded-md cursor-pointer"}`}
+            >
+              {item.day}
+              {item.hasArticle && !isActive && (
+                <span className="absolute bottom-0.5 left-1/2 -translate-x-0.5 inline-block size-1 bg-blue-300 rounded-full" />
+              )}
+            </div>
+          );
+        })}
       </div>
     );
   };
