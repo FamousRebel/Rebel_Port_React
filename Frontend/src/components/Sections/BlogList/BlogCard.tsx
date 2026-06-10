@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Icons from "@/components/Common/Icons";
 import type { BlogItem } from "@/types/blog.types";
 import CardChevron from "@/components/Common/Card/CardChevron";
+import { formatNumber } from "@/utils/formatUtils";
 
 interface BlogCardProps {
   item: BlogItem;
@@ -12,15 +13,6 @@ interface BlogCardProps {
 
 const BlogCard = ({ item }: BlogCardProps) => {
   const navigate = useNavigate();
-
-  const formatNumber = (num: number): string => {
-    if (num >= 10000) {
-      return (num / 10000).toFixed(1) + "万";
-    } else if (num >= 1000) {
-      return (num / 1000).toFixed(1) + "k";
-    }
-    return num.toString();
-  };
 
   return (
     <Card

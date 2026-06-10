@@ -13,9 +13,23 @@ import type { CategoryItem } from "@/components/Sections/BlogList/CategoryFilter
 import useBlogFilter from "@/hooks/useBlogFilter";
 import React, { useRef } from "react";
 import Icons from "@/components/Common/Icons";
+import { Button } from "@/components/ui/button";
+import type { myInfo } from "@/components/Sections/BlogList/AuthorInfo";
 
 // ======================== 独立数据源 ========================
 // 后续接入后端时，分别替换为对应的 API 请求
+
+const myInfoData: myInfo = {
+  url: "https://github.com/FamousRebel.png",
+  name: "Rebeler",
+  description: "全栈开发者，热爱分享技术与生活",
+  links: [{ name: "github", url: "https://github.com/FamousRebel" }],
+  articles: 52,
+  wordCount: 365000,
+  visitor: 2400,
+  views: 4200,
+  lastUpdated: "2026-06-05",
+};
 
 /** 博客列表数据（后续分页请求） */
 const blogList: BlogItem[] = [
@@ -253,7 +267,7 @@ const BlogList = () => {
             {filteredList.length > 10 && <LoadMore />}
           </div>
           <div className="w-80 flex flex-col gap-8 sticky top-20">
-            <AuthorInfo />
+            <AuthorInfo data={myInfoData} />
             <ArchiveWidget
               articleDates={articleDates}
               selectedDate={filters.selectedDate}
@@ -273,13 +287,15 @@ const BlogList = () => {
         </div>
       </div>
       {hasFilter && (
-        <button
+        <Button
+          variant="outline"
+          size="icon-lg"
           onClick={clearFilters}
           title="清空筛选"
-          className="group fixed bottom-8 right-8 z-50 size-12 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:shadow-xl hover:bg-gray-50 transition-all cursor-pointer"
+          className="fixed bottom-8 right-8 z-50 size-12 rounded-full shadow-lg"
         >
-          <Icons name="trash" className="group-hover:scale-110" />
-        </button>
+          <Icons name="trash" />
+        </Button>
       )}
     </div>
   );
