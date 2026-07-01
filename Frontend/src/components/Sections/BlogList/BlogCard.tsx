@@ -48,7 +48,7 @@ const BlogCard = ({ item }: BlogCardProps) => {
               }}
             >
               <Icons name="folderOpen" size={14} />
-              {item?.tag}
+              {item?.category}
             </span>
           </div>
           <div className="text-xl font-bold line-clamp-2 overflow-hidden text-ellipsis group-hover:text-[#13a4ec]">

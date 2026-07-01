@@ -10,7 +10,7 @@ export interface BaseBlogItem {
   color?: string; // 颜色
   description: string; // 简述
   blogId: number; // 博客ID
-  tag: string; // 分类
+  category: string; // 分类
 }
 
 export interface BlogItem extends BaseBlogItem {

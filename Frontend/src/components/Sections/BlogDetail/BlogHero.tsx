@@ -12,7 +12,7 @@ export interface BlogPostMeta {
   wordCount: number; // 字数
   views: number; // 阅读量
   likes: number; // 点赞数
-  tags: string[]; // 标签列表
+  techStackTags: string[]; // 标签列表
 }
 
 // TODO: 以下类型待迁移到 @/types/blog.types.ts
@@ -82,7 +82,7 @@ const BlogHero: React.FC<BlogHeroProps> = ({ post }) => {
 
         {/* 标签 */}
         <div className="flex items-center gap-3 justify-center">
-          {post.tags.map((tag, index) => {
+          {post.techStackTags.map((tag, index) => {
             const colorClasses = [
               "text-[#13a4ec]",
               "text-emerald-400",

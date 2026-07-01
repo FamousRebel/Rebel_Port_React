@@ -36,7 +36,7 @@ const blogList: BlogItem[] = [
   {
     id: 1,
     date: "2026-06-01",
-    tag: "前端前沿",
+    category: "前端前沿",
     title: "深入理解 React Concurrent Mode",
     description:
       "探索并发模式如何改变 React 应用的渲染方式，以及如何利用其特性提升应用流畅度。",
@@ -54,7 +54,7 @@ const blogList: BlogItem[] = [
   {
     id: 2,
     date: "2024-11-28",
-    tag: "性能优化",
+    category: "性能优化",
     title: "Webpack 5 性能优化实战指南",
     description:
       "从打包速度到产物体积，全面优化你的 Webpack 构建流程，让你的项目飞起来。",
@@ -73,7 +73,7 @@ const blogList: BlogItem[] = [
   {
     id: 3,
     date: "2024-11-10",
-    tag: "后端技术",
+    category: "后端技术",
     title: "Node.js 微服务架构设计与实践",
     description:
       "基于 Node.js 构建高可用微服务系统，涵盖服务发现、负载均衡、熔断降级等核心概念。",
@@ -92,7 +92,7 @@ const blogList: BlogItem[] = [
   {
     id: 4,
     date: "2024-10-25",
-    tag: "前端框架",
+    category: "前端框架",
     title: "Vue 3 组合式 API 深度解析",
     description:
       "深入理解 Vue 3 的组合式 API，掌握 Composition API 的设计思想和最佳实践。",
@@ -110,7 +110,7 @@ const blogList: BlogItem[] = [
   {
     id: 5,
     date: "2024-10-08",
-    tag: "数据库",
+    category: "数据库",
     title: "PostgreSQL 高级查询优化技巧",
     description:
       "从索引设计到查询计划分析，全方位提升 PostgreSQL 数据库性能，应对海量数据挑战。",
@@ -128,7 +128,7 @@ const blogList: BlogItem[] = [
   {
     id: 6,
     date: "2024-09-20",
-    tag: "前端工程化",
+    category: "前端工程化",
     title: "Monorepo 架构最佳实践",
     description:
       "探索 Monorepo 的优势与挑战，学习如何使用 Turborepo 构建高效的前端工程体系。",
@@ -147,7 +147,7 @@ const blogList: BlogItem[] = [
   {
     id: 7,
     date: "2024-09-05",
-    tag: "安全",
+    category: "安全",
     title: "Web 应用安全防护指南",
     description:
       "从 XSS 到 CSRF，从 SQL 注入到 SSRF，全面了解 Web 安全威胁与防护策略。",
@@ -165,7 +165,7 @@ const blogList: BlogItem[] = [
   {
     id: 8,
     date: "2024-08-18",
-    tag: "云原生",
+    category: "云原生",
     title: "Serverless 架构设计模式",
     description:
       "探索 Serverless 的核心概念，学习如何设计无服务器应用，降低运维成本。",
