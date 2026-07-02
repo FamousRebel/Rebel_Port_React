@@ -1,5 +1,5 @@
 import Home from "@/pages/Home";
-import Projects from "@/pages/Projects";
+import Projects from "@/pages/Project";
 import BlogList from "@/pages/BlogList";
 import BlogDetail from "@/pages/BlogDetail";
 import Links from "@/pages/Links";
