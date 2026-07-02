@@ -1,10 +1,10 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/shadcnUtils";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/Common/tooltip";
 import { HTMLAttributes, ReactNode } from "react";
 
 export type HeatmapValue = {

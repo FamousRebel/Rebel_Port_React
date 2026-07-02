@@ -6,8 +6,8 @@ import {
   CarouselNext,
   CarouselPrevious,
   type CarouselApi,
-} from "@/components/ui/carousel";
-import Heatmap from "@/components/ui/heatmap";
+} from "@/components/Common/carousel";
+import Heatmap from "@/components/Common/heatmap";
 import Icons from "@/components/Common/Icons";
 import CountUp from "@/components/Common/CountUp";
 import { useCallback, useEffect, useMemo, useState } from "react";

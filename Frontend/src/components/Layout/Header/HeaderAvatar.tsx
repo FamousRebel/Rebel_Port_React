@@ -1,12 +1,16 @@
 import Icons from "@/components/Common/Icons";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/Common/avatar";
+import { Button } from "@/components/Common/button";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "@/components/Common/dialog";
 
 const HeaderAvatar = () => {
   return (

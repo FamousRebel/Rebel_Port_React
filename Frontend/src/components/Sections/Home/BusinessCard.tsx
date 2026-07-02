@@ -1,7 +1,7 @@
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/Common/avatar";
 import BusinessCardImg from "@/assets/1.png";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/Common/badge";
+import { Button } from "@/components/Common/button";
 import { useNavigate } from "react-router-dom";
 import { Card, CardGroup, CardItem } from "@/components/Common/Card";
 import { Car } from "lucide-react";

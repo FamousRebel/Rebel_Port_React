@@ -5,14 +5,14 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "@/components/Common/dialog";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@/components/ui/input-group";
-import { Kbd } from "@/components/ui/kbd";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+} from "@/components/Common/input-group";
+import { Kbd } from "@/components/Common/kbd";
+import { ToggleGroup, ToggleGroupItem } from "@/components/Common/toggle-group";
 import type { SearchTabs, SearchItem } from "@/types/search.types";
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import {
@@ -23,7 +23,7 @@ import {
   ItemGroup,
   ItemMedia,
   ItemTitle,
-} from "@/components/ui/item";
+} from "@/components/Common/item";
 import useSearchStore from "@/store/searchStore";
 import { useShallow } from "zustand/react/shallow";
 

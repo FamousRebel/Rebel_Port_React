@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "@/components/Common/Card";
 import CardChevron from "@/components/Common/Card/CardChevron";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/Common/badge";
 import Icons from "@/components/Common/Icons";
 
 export interface CategoryItem {

@@ -4,9 +4,9 @@ import {
   CarouselContent,
   CarouselItem,
   type CarouselApi,
-} from "@/components/ui/carousel";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+} from "@/components/Common/carousel";
+import { Button } from "@/components/Common/button";
+import { Badge } from "@/components/Common/badge";
 import Icons from "@/components/Common/Icons";
 import Card from "@/components/Common/Card/Card";
 import {
@@ -16,7 +16,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/Common/select";
 
 export interface LinksItem {
   type: "github" | "web";

@@ -8,7 +8,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuLink,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from "@/components/Common/navigation-menu";
 import { Link } from "react-router-dom";
 import { RouteBuilder } from "@/utils/routesUtils";
 import { routesConfig } from "@/routes/config";

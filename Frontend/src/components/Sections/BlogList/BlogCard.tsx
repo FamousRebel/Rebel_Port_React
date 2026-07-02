@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardDescription } from "@/components/Common/Card";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/Common/badge";
 import { useNavigate } from "react-router-dom";
 import Icons from "@/components/Common/Icons";
 import type { BlogItem } from "@/types/blog.types";

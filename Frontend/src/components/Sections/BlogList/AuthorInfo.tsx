@@ -1,10 +1,10 @@
 import React from "react";
 import { Card } from "@/components/Common/Card";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/Common/button";
 import Icons from "@/components/Common/Icons";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/Common/avatar";
 import BusinessCardImg from "@/assets/1.png";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/Common/badge";
 import { formatDate, formatNumber } from "@/utils/formatUtils";
 
 interface links {

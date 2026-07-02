@@ -1,6 +1,6 @@
 import React from "react";
 import Icons, { type IconsProps } from "../Icons";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/shadcnUtils";
 import type { IconName } from "../Icons/icons";
 
 interface CardChevronProps extends Omit<IconsProps, "name"> {

@@ -6,8 +6,8 @@ import {
   CarouselContent,
   CarouselItem,
   type CarouselApi,
-} from "@/components/ui/carousel";
-import { Button } from "@/components/ui/button";
+} from "@/components/Common/carousel";
+import { Button } from "@/components/Common/button";
 import type { CardItem } from "@/types/card.types";
 import { useNavigate } from "react-router-dom";
 

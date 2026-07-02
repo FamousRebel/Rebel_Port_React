@@ -5,7 +5,7 @@ import {
 } from "@/components/Common/Card";
 import Icons from "@/components/Common/Icons";
 import { BusinessCard, FeaturedSection } from "@/components/Sections/Home";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/Common/badge";
 import type { BaseBlogItem } from "@/types/blog.types";
 import type { ProjectsItem } from "@/types/card.types";
 import React from "react";

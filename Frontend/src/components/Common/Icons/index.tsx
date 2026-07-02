@@ -1,7 +1,7 @@
 import type React from "react";
 import { ICONS, type IconName } from "./icons";
 import { motion, type MotionProps } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/shadcnUtils";
 
 interface IconsProps {
   name: IconName; // 图标名称

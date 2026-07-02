@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/shadcnUtils";
 import { cva, type VariantProps } from "class-variance-authority";
 import type { ReactNode } from "react";
 
