@@ -39,7 +39,7 @@ const Icons = ({
             y: [0, 8, 0],
             transition: {
               duration: 1.5,
-              ease: "easeInOut",
+              ease: "easeInOut" as const,
               repeat: Infinity,
             },
           },
@@ -50,7 +50,7 @@ const Icons = ({
             scale: [1, 1.1, 1],
             transition: {
               duration: 2,
-              ease: "easeInOut",
+              ease: "easeInOut" as const,
               repeat: Infinity,
             },
           },
@@ -61,7 +61,7 @@ const Icons = ({
             rotate: 360,
             transition: {
               duration: 2,
-              ease: "linear",
+              ease: "linear" as const,
               repeat: Infinity,
             },
           },
@@ -72,7 +72,7 @@ const Icons = ({
             y: [0, 12, 0],
             transition: {
               duration: 1.8,
-              ease: "easeInOut",
+              ease: "easeInOut" as const,
               repeat: Infinity,
             },
           },
@@ -83,7 +83,7 @@ const Icons = ({
             y: [0, -12, 0],
             transition: {
               duration: 1.8,
-              ease: "easeInOut",
+              ease: "easeInOut" as const,
               repeat: Infinity,
             },
           },
@@ -95,27 +95,30 @@ const Icons = ({
 
   const Container = animated ? motion.div : "span";
   const animationConfig = animated ? getAnimationVariants() : {};
+  const { style: externalStyle, ...restAnimationProps } = animationProps || {};
+  const mergedStyle = {
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: size,
+    height: size,
+    color: color,
+    ...externalStyle,
+  };
 
   return (
-    <Container
+    <motion.span
       className={cn(
         "cursor-pointer flex items-center justify-center transition-transform hover:scale-110",
         className,
       )}
       onClick={onClick}
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: size,
-        height: size,
-        color: color,
-      }}
+      style={mergedStyle}
       {...animationConfig}
-      {...animationProps}
+      {...restAnimationProps}
     >
       {icon}
-    </Container>
+    </motion.span>
   );
 };
 
