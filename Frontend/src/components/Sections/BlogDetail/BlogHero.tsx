@@ -1,3 +1,5 @@
+import Icons from "@/components/Common/Icons";
+import { Icon } from "lucide-react";
 import React from "react";
 
 // ============================================================
@@ -21,7 +23,7 @@ export interface BlogPostMeta {
 
 interface BlogHeroProps {
   /** 从API/Hooks获取的文章元数据 */
-  post: BlogPostMeta;
+  post: BlogPostMeta | undefined;
 }
 
 const BlogHero: React.FC<BlogHeroProps> = ({ post }) => {
@@ -32,7 +34,7 @@ const BlogHero: React.FC<BlogHeroProps> = ({ post }) => {
         <img
           alt="Technology background"
           className="w-full h-full object-cover"
-          src={post.coverImage}
+          src={post?.coverImage}
         />
         <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-[2px]" />
       </div>
@@ -45,44 +47,43 @@ const BlogHero: React.FC<BlogHeroProps> = ({ post }) => {
             className="group flex items-center gap-2 text-slate-300 hover:text-white transition-all text-xs font-bold uppercase tracking-[0.2em]"
             href="/blog"
           >
-            {/* TODO: 替换为实际图标 */}
-            <div className="w-5 h-5 bg-gray-200 rounded group-hover:-translate-x-1 transition-transform" />
+            <Icons name="arrowLeft" size={16} />
             <span>返回列表</span>
           </a>
         </div>
 
         {/* 标题 */}
         <h1 className="text-5xl lg:text-7xl font-black tracking-tight text-white mb-10 leading-tight drop-shadow-2xl text-center">
-          {post.title}
+          {post?.title}
         </h1>
 
         {/* 元信息行 */}
         <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-sm text-slate-200 font-medium mb-8 justify-center">
           <div className="flex items-center gap-2">
-            <div className="w-[18px] h-[18px] bg-gray-200 rounded" />
-            {post.publishDate}
+            <Icons name="clockFading" size={18} />
+            {post?.publishDate.split(" ")[0]}
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-[18px] h-[18px] bg-gray-200 rounded" />
-            <span className="text-[#13a4ec]">{post.category}</span>
+            <Icons name="tags" size={18} className="cursor-default" />
+            <span className="text-[#13a4ec]">{post?.category}</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-[18px] h-[18px] bg-gray-200 rounded" />约{" "}
-            {post.wordCount.toLocaleString()} 字
+            <Icons name="fileText" size={18} />约{" "}
+            {post?.wordCount.toLocaleString()} 字
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-[18px] h-[18px] bg-gray-200 rounded" />
-            {post.views.toLocaleString()} 阅读
+            <Icons name="eyes" size={18} />
+            {post?.views.toLocaleString()} 阅读
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-[18px] h-[18px] bg-gray-200 rounded" />
-            {post.likes.toLocaleString()} 点赞
+            <Icons name="heart" size={18} />
+            {post?.likes.toLocaleString()} 点赞
           </div>
         </div>
 
         {/* 标签 */}
         <div className="flex items-center gap-3 justify-center">
-          {post.techStackTags.map((tag, index) => {
+          {post?.techStackTags.map((tag, index) => {
             const colorClasses = [
               "text-[#13a4ec]",
               "text-emerald-400",

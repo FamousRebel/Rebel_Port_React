@@ -152,17 +152,6 @@ const interactionData: InteractionData = {
   isLiked: false,
 };
 
-const prevPost: AdjacentPost = {
-  id: 2,
-  title: "精通 React Hooks：超越基础应用",
-  url: "#",
-};
-const nextPost: AdjacentPost = {
-  id: 3,
-  title: "使用 Next.js 14 进行服务端渲染",
-  url: "#",
-};
-
 const comments: CommentData[] = [
   {
     id: 1,
@@ -317,14 +306,17 @@ const BlogDetail = () => {
 
   return (
     <>
-      <BlogHero post={postMeta} />
+      <BlogHero post={rawData} />
 
       <main className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10 items-start">
           {/* 左侧主内容区 */}
           <div className="space-y-8">
             <BlogMarkdown sections={markdownSections} />
-            <BlogNavigation prevPost={prevPost} nextPost={nextPost} />
+            <BlogNavigation
+              prevPost={rawData?.prevPost}
+              nextPost={rawData?.nextPost}
+            />
             <InteractionBar
               data={interactionData}
               onLike={handleLike}
